@@ -7,7 +7,7 @@ Students: YOU DO NOT NEED TO FORK THIS REPO.
 ### Practice
 
 1. Visit [Chinook](http://jxs.me/chinook-web/).
-2. Open [injuries.demo.sql](https://github.com/kendagriff/sql-course/blob/master/injuries.demo.sql)
+2. Open [injuries.demo.sql](https://github.com/statianzo/sql-course/blob/master/injuries.demo.sql)
 
 ### Mini-Project
 
@@ -18,7 +18,7 @@ Visit [simple-sql-queries](https://github.com/devmountain/simple-sql-queries)
 ### Practice
 
 1. Visit [Chinook](http://jxs.me/chinook-web/).
-2. Open [injuries.demo.sql](https://github.com/kendagriff/sql-course/blob/master/injuries.demo.sql)
+2. Open [injuries.demo.sql](https://github.com/statianzo/sql-course/blob/master/injuries.demo.sql)
 
 ### Mini-Project
 
