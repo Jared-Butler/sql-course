@@ -47,7 +47,14 @@ SELECT count(id) FROM injuries;
  
 SELECT count(*) FROM injuries;
 
+SELECT count(description) FROM injuries;
+
 -- ? What's the difference?
+
+-- Select expressions
+SELECT name, tth * 30 FROM injuries;
+
+SELECT upper(name) FROM injuries;
 
 -- Constrain the results
 SELECT * FROM injuries WHERE id = 2;
@@ -79,8 +86,14 @@ SELECT * FROM injuries ORDER BY tth;
 SELECT * FROM injuries ORDER BY tth ASC;
 SELECT * FROM injuries ORDER BY tth DESC;
 
+-- Sort by multiple columns
+SELECT * FROM injuries ORDER BY tth DESC, name ASC;
+
 -- Limit the results
 SELECT * FROM injuries ORDER BY tth DESC LIMIT 2;
+
+-- Limit while skipping over an offset
+SELECT * FROM injuries ORDER BY tth DESC LIMIT 2 OFFSET 2;
 
 -- Random results
 SELECT * FROM injuries ORDER BY random() LIMIT 1;
