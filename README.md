@@ -1,6 +1,6 @@
 # Devmountain SQL Course
 
-Students: YOU DO NOT NEED TO FORK THIS REPO.
+Slides are available in [Databases.pdf](https://github.com/statianzo/sql-course/blob/master/Databases.pdf)
 
 ## Day 1
 
@@ -23,3 +23,11 @@ Visit [simple-sql-queries](https://github.com/devmountain/simple-sql-queries)
 ### Mini-Project
 
 Visit [intermediate-sql-queries](https://github.com/devmountain/intermediate-sql-queries)
+
+## Day 3
+
+### Mini-Project
+
+Using Massive.js + Postgres to build a web app
+
+Visit [massive-demo](https://github.com/statianzo/massive-demo)
