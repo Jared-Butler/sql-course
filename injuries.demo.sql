@@ -10,7 +10,7 @@ CREATE TABLE injuries
   tth INTEGER
 );
 
--- What is a schema? https://raw.githubusercontent.com/kendagriff/sql-course/master/images/falcon.jpg
+-- What is a schema? https://raw.githubusercontent.com/statianzo/sql-course/master/images/falcon.jpg
 
 -- Create data in our new table
 INSERT INTO injuries
@@ -34,8 +34,6 @@ SELECT * FROM injuries;
 
 -- Inspect individual columns on a table.
 SELECT name, description FROM injuries;
-
--- ! Try fetching tth and affected_area_id
 
 -- Summarize the Time-to-heal field
 SELECT sum(tth) FROM injuries;
@@ -108,22 +106,22 @@ SELECT DISTINCT tth FROM injuries;  -- no dupes
 
 -- DAY 2
 
--- Create an affected_areas table
-CREATE TABLE affected_areas
+-- Create an affectedAreas table
+CREATE TABLE affectedAreas
 (
   id INTEGER PRIMARY KEY,
   name VARCHAR(40)
 );
 
-INSERT INTO affected_areas (id, name) VALUES (1, 'Groin');
-INSERT INTO affected_areas (id, name) VALUES (2, 'Neck');
-INSERT INTO affected_areas (id, name) VALUES (3, 'Leg');
-INSERT INTO affected_areas (id, name) VALUES (4, 'Foot');
-INSERT INTO affected_areas (id, name) VALUES (5, 'Head');
-INSERT INTO affected_areas (id, name) VALUES (6, 'Hand');
-INSERT INTO affected_areas (id, name) VALUES (7, 'Wrist');
-INSERT INTO affected_areas (id, name) VALUES (8, 'Ankle');
-INSERT INTO affected_areas (id, name) VALUES (9, 'Elbow');
+INSERT INTO affectedAreas (id, name) VALUES (1, 'Groin');
+INSERT INTO affectedAreas (id, name) VALUES (2, 'Neck');
+INSERT INTO affectedAreas (id, name) VALUES (3, 'Leg');
+INSERT INTO affectedAreas (id, name) VALUES (4, 'Foot');
+INSERT INTO affectedAreas (id, name) VALUES (5, 'Head');
+INSERT INTO affectedAreas (id, name) VALUES (6, 'Hand');
+INSERT INTO affectedAreas (id, name) VALUES (7, 'Wrist');
+INSERT INTO affectedAreas (id, name) VALUES (8, 'Ankle');
+INSERT INTO affectedAreas (id, name) VALUES (9, 'Elbow');
 
 -- Recreate our data from yesterday
 CREATE TABLE injuries
@@ -146,62 +144,62 @@ INSERT INTO injuries (id, name, description, tth) VALUES (8, 'Pulled Muscle', 'R
 -- Pick up in SQL.key
 
 -- Add a foreign key to injuries
-ALTER TABLE injuries ADD COLUMN affected_area_id INTEGER REFERENCES affected_areas(id);
+ALTER TABLE injuries ADD COLUMN affectedAreaId INTEGER REFERENCES affectedAreas(id);
 
 -- Update the existing injuries
-UPDATE injuries SET affected_area_id = 1 WHERE id = 1;
-UPDATE injuries SET affected_area_id = 2 WHERE id = 2;
-UPDATE injuries SET affected_area_id = 2 WHERE id = 3;
-UPDATE injuries SET affected_area_id = 3 WHERE id = 4;
-UPDATE injuries SET affected_area_id = 4 WHERE id = 5;
-UPDATE injuries SET affected_area_id = 6 WHERE id = 6;
-UPDATE injuries SET affected_area_id = 6 WHERE id = 7;
-UPDATE injuries SET affected_area_id = 1 WHERE id = 8;
+UPDATE injuries SET affectedAreaId = 1 WHERE id = 1;
+UPDATE injuries SET affectedAreaId = 2 WHERE id = 2;
+UPDATE injuries SET affectedAreaId = 2 WHERE id = 3;
+UPDATE injuries SET affectedAreaId = 3 WHERE id = 4;
+UPDATE injuries SET affectedAreaId = 4 WHERE id = 5;
+UPDATE injuries SET affectedAreaId = 6 WHERE id = 6;
+UPDATE injuries SET affectedAreaId = 6 WHERE id = 7;
+UPDATE injuries SET affectedAreaId = 1 WHERE id = 8;
 
 -- Combine the two tables into one query (e.g. Tell us everything about body parts and injuries!)
 SELECT *
-FROM affected_areas
-JOIN injuries ON affected_areas.id = injuries.affected_area_id;
+FROM affectedAreas
+JOIN injuries ON affectedAreas.id = injuries.affectedAreaId;
 
 -- Describe all neck injuries:
 SELECT *
-FROM affected_areas
-JOIN injuries ON affected_areas.id = injuries.affected_area_id
-WHERE affected_areas.name = 'Neck';
+FROM affectedAreas
+JOIN injuries ON affectedAreas.id = injuries.affectedAreaId
+WHERE affectedAreas.name = 'Neck';
 
 -- How can we limit the amount of information we query?
 SELECT injuries.id, injuries.name
-FROM affected_areas
-JOIN injuries ON affected_areas.id = injuries.affected_area_id
-WHERE affected_areas.name = 'Neck';
+FROM affectedAreas
+JOIN injuries ON affectedAreas.id = injuries.affectedAreaId
+WHERE affectedAreas.name = 'Neck';
 
 -- How about counting them?
 SELECT count(*)
-FROM affected_areas
-JOIN injuries ON affected_areas.id = injuries.affected_area_id
-WHERE affected_areas.name = 'Neck';
+FROM affectedAreas
+JOIN injuries ON affectedAreas.id = injuries.affectedAreaId
+WHERE affectedAreas.name = 'Neck';
 
 -- What if there are no injuries related to a body part?
 SELECT injuries.id, injuries.name
-FROM affected_areas
-JOIN injuries ON affected_areas.id = injuries.affected_area_id
-WHERE affected_areas.name = 'Wrist';
+FROM affectedAreas
+JOIN injuries ON affectedAreas.id = injuries.affectedAreaId
+WHERE affectedAreas.name = 'Wrist';
 -- No results
 
 -- Another way to describe all neck injuries: The Subquery
 SELECT *
 FROM injuries
-WHERE affected_area_id in (SELECT id FROM affected_areas WHERE name = 'Neck');
+WHERE affectedAreaId in (SELECT id FROM affectedAreas WHERE name = 'Neck');
 
 -- Count the number of possible injuries for each body part
-SELECT affected_areas.name, count(*)
-FROM affected_areas
-JOIN injuries ON affected_areas.id = injuries.affected_area_id
-GROUP BY affected_areas.name;
+SELECT affectedAreas.name, count(*)
+FROM affectedAreas
+JOIN injuries ON affectedAreas.id = injuries.affectedAreaId
+GROUP BY affectedAreas.name;
 
 -- Another way to count: The Subquery
-SELECT name, (SELECT count(*) FROM injuries WHERE injuries.affected_area_id = affected_areas.id)
-FROM affected_areas;
+SELECT name, (SELECT count(*) FROM injuries WHERE injuries.affectedAreaId = affectedAreas.id)
+FROM affectedAreas;
 
 -- What was the difference?
 
