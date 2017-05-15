@@ -30,4 +30,6 @@ Visit [intermediate-sql-queries](https://github.com/devmountain/intermediate-sql
 
 Using Massive.js + Postgres to build a web app
 
+Set up [Postgres on Heroku](https://github.com/statianzo/sql-setup)
+
 Visit [massive-demo](https://github.com/statianzo/massive-demo)
