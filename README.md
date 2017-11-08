@@ -2,7 +2,7 @@
 
 Slides are available in [Databases.pdf](https://github.com/statianzo/sql-course/blob/master/Databases.pdf)
 
-## Day 1
+## SQL 1
 
 ### Practice
 
@@ -13,7 +13,18 @@ Slides are available in [Databases.pdf](https://github.com/statianzo/sql-course/
 
 Visit [simple-sql-queries](https://github.com/devmountain/simple-sql-queries)
 
-## Day 2
+## Massive 1
+
+### Mini-Project
+
+Using Massive.js + Postgres to build a web app
+
+Set up [Postgres on Heroku](https://github.com/statianzo/sql-setup)
+
+Visit [massive-demo](https://github.com/statianzo/massive-demo)
+
+
+## SQL 2
 
 ### Practice
 
@@ -24,12 +35,3 @@ Visit [simple-sql-queries](https://github.com/devmountain/simple-sql-queries)
 
 Visit [intermediate-sql-queries](https://github.com/devmountain/intermediate-sql-queries)
 
-## Day 3
-
-### Mini-Project
-
-Using Massive.js + Postgres to build a web app
-
-Set up [Postgres on Heroku](https://github.com/statianzo/sql-setup)
-
-Visit [massive-demo](https://github.com/statianzo/massive-demo)
