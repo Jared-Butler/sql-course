@@ -8,6 +8,7 @@ Slides are available in [Databases.pdf](https://github.com/statianzo/sql-course/
 
 1. Visit [Chinook](http://jxs.me/chinook-web/).
 2. Open [injuries.demo.sql](https://github.com/statianzo/sql-course/blob/master/injuries.demo.sql)
+3. [SQL Bolt](https://sqlbolt.com/) exercises
 
 ### Mini-Project
 
